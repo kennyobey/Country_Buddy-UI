@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:country_buddy/Screens/homescreen.dart';
+import 'package:country_buddy/Screens/travelingui.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home:  MyHomePage(),
+      home:  MyTravelUi(),
     );
   }
 }
