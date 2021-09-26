@@ -9,9 +9,7 @@ class MyTravelUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(appBarTheme: AppBarTheme(color: Colors.white)),
-      home: Scaffold(
+    return Scaffold(
           body: CustomScrollView(
         primary: false,
         slivers: <Widget>[
@@ -116,7 +114,7 @@ class MyTravelUi extends StatelessWidget {
             ),
           ),
         ],
-      )),
+      )
     );
   }
 }
@@ -149,12 +147,16 @@ Widget scrollItem() {
           ),
         ),
       ),
-      Text('Nigeria',
-          style: GoogleFonts.nunito(
-              textStyle: const TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 12,
-                  color: Color.fromRGBO(98, 88, 72, 10))))
+      Row(
+        children: [
+          Text('Nigeria',
+              style: GoogleFonts.nunito(
+                  textStyle: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      color: Color.fromRGBO(98, 88, 72, 10)))),
+        ],
+      )
     ],
   );
 }

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:country_buddy/Screens/country_sections.dart';
 import 'package:country_buddy/Screens/homescreen.dart';
+import 'package:country_buddy/Screens/search.dart';
 import 'package:country_buddy/Screens/travelingui.dart';
 import 'package:flutter/material.dart';
 
@@ -13,12 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.grey,
+        appBarTheme: AppBarTheme(color: Colors.white)
       ),
-      home:  MyTravelUi(),
+      home:  MyCountrySectionPage(),
     );
   }
 }
