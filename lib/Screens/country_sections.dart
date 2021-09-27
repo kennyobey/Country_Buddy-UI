@@ -45,24 +45,20 @@ class MyCountrySectionPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: ("search countries, continent"),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(
-                                  color: Colors.transparent, width: 1),
-                              gapPadding: 5.0),
-                          fillColor: Colors.white,
-                          filled: true,
-                          prefixIcon: const Icon(Icons.search),
-                          hintStyle: const TextStyle(
-                              color: Colors.grey, fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                    ],
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: ("search countries, continent"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              color: Colors.transparent, width: 1),
+                          gapPadding: 5.0),
+                      fillColor: Colors.white,
+                      filled: true,
+                      prefixIcon: const Icon(Icons.search),
+                      hintStyle: const TextStyle(
+                          color: Colors.grey, fontWeight: FontWeight.w400),
+                    ),
                   ),
                   
                   SizedBox(

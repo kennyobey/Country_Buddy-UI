@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:country_buddy/Screens/bottomnav.dart';
 import 'package:country_buddy/Screens/country_sections.dart';
 import 'package:country_buddy/Screens/homescreen.dart';
 import 'package:country_buddy/Screens/search.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         appBarTheme: AppBarTheme(color: Colors.white)
       ),
-      home:  MyCountrySectionPage(),
+      home:  MyNavPage(),
     );
   }
 }

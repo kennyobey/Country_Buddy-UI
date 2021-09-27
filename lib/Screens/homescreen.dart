@@ -1,21 +1,25 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_field, must_be_immutable, unused_element, unnecessary_const, prefer_final_fields
 
+import 'package:country_buddy/Screens/search.dart';
+import 'package:country_buddy/Screens/travelingui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+    const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: CustomScrollView(
+      body: CustomScrollView(
         primary: false,
         slivers: <Widget>[
+           
           SliverPadding(
             padding: EdgeInsets.only(left: 0, right: 0),
             sliver: SliverAppBar(
+              elevation: 0,
               pinned: true,
               floating: true,
               title: Text("Hi Dara,",
@@ -32,6 +36,7 @@ class MyHomePage extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
+                    //_pages.elementAt(_selectedIndex),
                     Text(
                         "Curious? Browse your favorite countries and increase your knowledge base",
                         textAlign: TextAlign.justify,
@@ -168,10 +173,12 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
         ],
-      )
+      ),
     );
   }
 }
+
+void setState(Null Function() param0) {}
 
 Widget profilePage() {
   return Container(
