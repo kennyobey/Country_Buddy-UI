@@ -31,7 +31,6 @@ class _MyNavPageState extends State<MyNavPage> {
     return Scaffold(
         body: Center(child: _pages.elementAt(_selectedIndex)),
         bottomNavigationBar: BottomNavigationBar(
-          selectedFontSize: 10,
           selectedIconTheme: IconThemeData(color: Color.fromRGBO(98, 88, 72, 10), size: 40),
           selectedItemColor: Colors.amberAccent,
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),

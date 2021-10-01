@@ -33,19 +33,23 @@ class MySearchPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: ("search countries, continent"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                              color: Colors.transparent, width: 1),
-                          gapPadding: 5.0),
-                      fillColor: Colors.white,
-                      filled: true,
-                      prefixIcon: const Icon(Icons.search),
-                      hintStyle: const TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.w400),
+                  Container(
+                    height: 40,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: ("search countries, continent"),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                                color: Colors.transparent, width: 1),
+                            gapPadding: 5.0),
+                            contentPadding: EdgeInsets.all(8),
+                        fillColor: Colors.white,
+                        filled: true,
+                        prefixIcon: const Icon(Icons.search),
+                        hintStyle: const TextStyle(
+                            color: Colors.grey, fontWeight: FontWeight.w400),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -70,14 +74,10 @@ class MySearchPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
-                          scrollItem(),
+                          scrollItem1('assets/abuja.png', "Abuja"),
+                            scrollItem1('assets/usflag.png', "US"),
+                            scrollItem1('assets/palmtree.png', "Thailand"),
+                            scrollItem1('assets/ukflag.png', "UK"),
                         ],
                       )),
                   SizedBox(
@@ -105,7 +105,7 @@ class MySearchPage extends StatelessWidget {
   }
 }
 
-Widget scrollItem() {
+Widget scrollItem1(String images, String name) {
   return Column(
     children: [
       Container(
@@ -114,8 +114,8 @@ Widget scrollItem() {
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Image.network(
-            "https://i.picsum.photos/id/9/250/250.jpg?hmac=tqDH5wEWHDN76mBIWEPzg1in6egMl49qZeguSaH9_VI",
+          child: Image.asset(
+            images,
             height: 90,
             width: 90,
             fit: BoxFit.fill,
@@ -124,17 +124,22 @@ Widget scrollItem() {
       ),
       Row(
         children: [
-          Text('Nigeria',
-              style: GoogleFonts.nunito(
-                  textStyle: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12,
-                      color: Color.fromRGBO(98, 88, 72, 10)))),
+          Row(
+            children: [
+              Text(name,
+                  style: GoogleFonts.nunito(
+                      textStyle: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          color: Color.fromRGBO(98, 88, 72, 10)))),
+            ],
+          ),
         ],
       )
     ],
   );
 }
+
 
 Widget listtile(String countries) {
   return ListTile(

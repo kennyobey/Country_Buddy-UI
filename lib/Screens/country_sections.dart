@@ -1,11 +1,27 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:country_buddy/Screens/country_information.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyCountrySectionPage extends StatelessWidget {
-  const MyCountrySectionPage({Key? key}) : super(key: key);
+class MyCountrySec extends StatelessWidget {
+  MyCountrySec({Key? key}) : super(key: key);
+
+  final List<PhotoItem> _items = [
+    PhotoItem("assets/Angola.jpg", "Angola",
+        "Angola is a Southern African nation whose varied ."),
+    PhotoItem("assets/Benin.jpg", "Benin Republic",
+        "Angola is a Southern African nation whose varied ."),
+    PhotoItem("assets/CentralAfri.jpg", "Central African Republic",
+        "Angola is a Southern African nation whose varied ."),
+    PhotoItem("assets/Drcongo.jpg", "DR Congo",
+        "Angola is a Southern African nation whose varied ."),
+    PhotoItem("assets/Ethopia.jpg", "Ethopia",
+        "Angola is a Southern African nation whose varied ."),
+    PhotoItem("assets/Gambia.jpg", "Gambia",
+        "Angola is a Southern African nation whose varied .󠁧󠁢󠁥󠁮󠁧󠁿"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -14,125 +30,158 @@ class MyCountrySectionPage extends StatelessWidget {
       primary: false,
       slivers: <Widget>[
         SliverPadding(
-          padding: EdgeInsets.only(left: 0, right: 0),
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
           sliver: SliverAppBar(
+            elevation: 0,
             pinned: true,
-            floating: true,
-            leading: Icon(Icons.arrow_back_ios_new_rounded),
+            title: Text("",
+                style: GoogleFonts.nunito(
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        color: Color.fromRGBO(98, 88, 72, 10)))),
           ),
         ),
+        
         SliverPadding(
           padding: EdgeInsets.only(left: 15, right: 15),
           sliver: SliverToBoxAdapter(
-            child: Center(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text("African Countries",
-                          textAlign: TextAlign.justify,
-                          style: GoogleFonts.nunito(
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 24,
-                                  color: Color.fromRGBO(98, 88, 72, 10)))),
-                      Icon(
-                        Icons.circle_notifications_sharp,
-                        size: 20,
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: ("search countries, continent"),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                              color: Colors.transparent, width: 1),
-                          gapPadding: 5.0),
-                      fillColor: Colors.white,
-                      filled: true,
-                      prefixIcon: const Icon(Icons.search),
-                      hintStyle: const TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                  
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Sort: Alphabetical order",
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text("African Countries",
+                        textAlign: TextAlign.justify,
                         style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24,
+                                color: Color.fromRGBO(98, 88, 72, 10)))),
+                    SizedBox(width: 5),
+                     Image(
+                        image: AssetImage(
+                      "assets/worldicon.png",
+                    ))
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 270,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: ("search countries in africa"),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                              borderSide: const BorderSide(
+                                  color: Colors.transparent, width: 1),
+                              gapPadding: 5.0),
+                          contentPadding: EdgeInsets.all(8),
+                          fillColor: Colors.white,
+                          filled: true,
+                          prefixIcon: const Icon(Icons.search),
+                          hintStyle: const TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      child: Image(
+                          image: AssetImage(
+                        "assets/searchicon.png",
+                      )),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Text("Sort: Alphabetical Order",
+                        textAlign: TextAlign.justify,
+                        style: GoogleFonts.nunito(
+                            textStyle: const TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
-                                color: Color.fromRGBO(98, 88, 72, 10))),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-              ),
+                                color: Color.fromRGBO(98, 88, 72, 10)))),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
         SliverPadding(
-          padding: const EdgeInsets.all(10.0),
-          sliver: SliverGrid.count(
-            crossAxisSpacing: 10.0,
-            crossAxisCount: 1,
-            children: List.generate(6, (index) {
-              // ignore: avoid_unnecessary_containers, sized_box_for_whitespace
+          padding: const EdgeInsets.all(8.0),
+          sliver: SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
               return Container(
-                //padding: EdgeInsets.all(8),
-                height: 222,
-                width: 183,
-                child: Card(
-                    child: Column(children: [
-                  // ignore: avoid_unnecessary_containers, sized_box_for_whitespace
-                  Container(
-                    height: 100,
-                    width: 100,
-                    child: Image.network("https://robohash.org/$index"),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  // ignore: avoid_unnecessary_containers
-                  Container(
-                      padding: EdgeInsets.only(left: 5, right: 5),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Africa",
-                            style: GoogleFonts.nunito(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                    color: Color.fromRGBO(98, 88, 72, 10))),
+                padding: EdgeInsets.all(5),
+                height: 100,
+                width: 100,
+                child: GestureDetector(
+                   onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyCountryInfo()),
+            );
+          },
+                  child: InkWell(
+                    child: Card(
+                        child: Column(children: [
+                      ListTile(
+                        leading: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minWidth: 50,
+                            minHeight: 50,
+                            maxWidth: 70,
+                            maxHeight: 70,
                           ),
-                          Text(
-                            "Africa is the second largest continent in the world",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.nunito(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    color: Color.fromRGBO(98, 88, 72, 10))),
-                          ),
-                        ],
-                      ))
-                ])),
+                          child:
+                              Image.asset(_items[index].image, fit: BoxFit.cover),
+                        ),
+                        title: Row(
+                          children: [
+                            Text(
+                              _items[index].title,
+                              style: GoogleFonts.nunito(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14,
+                                      color: Color.fromRGBO(98, 88, 72, 10))),
+                            ),
+                          ],
+                        ),
+                        subtitle: Row(
+                          children: [
+                            Text(
+                              _items[index].desc,
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.nunito(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 9,
+                                      color: Color.fromRGBO(98, 88, 72, 10))),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                    ])),
+                  ),
+                ),
               );
-            }),
+            }, childCount: _items.length),
           ),
         ),
       ],
@@ -180,4 +229,12 @@ Widget scrollItem() {
       )
     ],
   );
+}
+
+class PhotoItem {
+  late String image;
+  late String title;
+  late String desc;
+
+  PhotoItem(this.image, this.title, this.desc);
 }
