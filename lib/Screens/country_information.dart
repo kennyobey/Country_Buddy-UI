@@ -45,43 +45,34 @@ class MyCountryInfo extends StatelessWidget {
           padding: EdgeInsets.only(left: 15, right: 15),
           sliver: SliverToBoxAdapter(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 400,
-                  child: Image.asset("assets/AngolaRiver.jpg"),
+                Center(
+                  child: Container(
+                    height: 400,
+                    child: Image.asset("assets/AngolaRiver.jpg"),
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Text("About Angola",
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.nunito(
-                            textStyle: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                color: Color.fromRGBO(98, 88, 72, 10)))),
-                  ],
-                ),
+                Text("About Angola",
+                    textAlign: TextAlign.justify,
+                    style: GoogleFonts.nunito(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            color: Color.fromRGBO(98, 88, 72, 10)))),
                 SizedBox(
                   height: 5,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Text(
-                          "Angola, country located in southwestern Africa, Angola, country located in southwestern Africa,. ",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.nunito(
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Color.fromRGBO(98, 88, 72, 10)))),
-                    ),
-                  ],
-                ),
+                Text(
+                    "Angola, country located in southwestern Africa, Angola, country located in southwestern Africa,. ",
+                    style: GoogleFonts.nunito(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color.fromRGBO(98, 88, 72, 10)))),
                 SizedBox(
                   height: 5,
                 ),
@@ -108,36 +99,25 @@ class MyCountryInfo extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    Text("Culture",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.nunito(
-                            textStyle: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                color: Color.fromRGBO(98, 88, 72, 10)))),
-                    Text(
-                        "The mixture of Portuguese and African culture has made urban",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.nunito(
-                            textStyle: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                color: Color.fromRGBO(98, 88, 72, 10)))),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text("Famous People",
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.nunito(
-                            textStyle: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                color: Color.fromRGBO(98, 88, 72, 10)))),
-                  ],
-                ),
+                Text("Culture",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.nunito(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            color: Color.fromRGBO(98, 88, 72, 10)))),
+                Text(
+                    "The mixture of Portuguese and African culture has made urban",
+                    style: GoogleFonts.nunito(
+                        textStyle: const TextStyle(
+                            fontSize: 16,
+                            color: Color.fromRGBO(98, 88, 72, 10)))),
+                Text("Famous People",
+                    style: GoogleFonts.nunito(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            color: Color.fromRGBO(98, 88, 72, 10)))),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
