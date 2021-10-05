@@ -140,70 +140,62 @@ class MyHomePage extends StatelessWidget {
                 height: 240,
                 width: 183,
                 child: GestureDetector(
-                   onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyCountrySec()),
-            );
-          },
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyCountrySec()),
+                    );
+                  },
                   child: InkWell(
                     child: Card(
-                        child: Column(children: [
-                      Container(
-                        height: 108,
-                        width: 146,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              _items[index].image,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                          Container(
+                            height: 108,
+                            width: 146,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  _items[index].image,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Container(
-                          padding: EdgeInsets.only(left: 8, right: 8),
-                          child: Column(
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      _items[index].title,
-                                      style: GoogleFonts.nunito(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 14,
-                                              color:
-                                                  Color.fromRGBO(98, 88, 72, 10))),
-                                    ),
-                                  ],
+                                child: Text(
+                                  _items[index].title,
+                                  style: GoogleFonts.nunito(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 14,
+                                          color:
+                                              Color.fromRGBO(98, 88, 72, 10))),
                                 ),
                               ),
                               Container(
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      _items[index].desc,
-                                      textAlign: TextAlign.start,
-                                      style: GoogleFonts.nunito(
-                                          textStyle: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 9,
-                                              color:
-                                                  Color.fromRGBO(98, 88, 72, 10))),
-                                    ),
-                                  ],
+                                child: Text(
+                                  _items[index].desc,
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.nunito(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 9,
+                                          color:
+                                              Color.fromRGBO(98, 88, 72, 10))),
                                 ),
                               )
                             ],
-                          ))
-                    ])),
-                    
+                          )
+                        ])),
                   ),
                 ),
               );
