@@ -54,7 +54,7 @@ class MyCountryInfo extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text("About Angola",
                     textAlign: TextAlign.justify,
@@ -64,17 +64,18 @@ class MyCountryInfo extends StatelessWidget {
                             fontSize: 16,
                             color: Color.fromRGBO(98, 88, 72, 10)))),
                 SizedBox(
-                  height: 5,
+                  height: 8,
                 ),
                 Text(
-                    "Angola, country located in southwestern Africa, Angola, country located in southwestern Africa,. ",
+                    "Angola, country located in southwestern Africa. A large country,gola takes in a broad variety of landscapes, including thesemidesert Atlantic littoral bordering Namibia’s “Skeleton Coast.With a Population of 31,067,000 people, Angola is fast growing.",
+                    textAlign: TextAlign.justify,
                     style: GoogleFonts.nunito(
                         textStyle: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                            fontSize: 12,
                             color: Color.fromRGBO(98, 88, 72, 10)))),
                 SizedBox(
-                  height: 5,
+                  height: 32,
                 ),
                 Row(
                   children: [
@@ -87,17 +88,23 @@ class MyCountryInfo extends StatelessWidget {
                                 color: Color.fromRGBO(98, 88, 72, 10)))),
                   ],
                 ),
+                SizedBox(
+                  height: 8,
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      scrollItem1("assets/abuja.png", "abuja"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
+                      scrollItem1("assets/luanada.jpg", "Luanda"),
+                      scrollItem1("assets/waterfall.jpg", "Dala Waterfalls"),
+                      scrollItem1("assets/kisama.jpg", "Kissama"),
+                      scrollItem1("assets/forest.jpg", "Maiombe Forest"),
+                      scrollItem1("assets/Angola.jpg", "Maiombe Forest"),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 32,
                 ),
                 Text("Culture",
                     textAlign: TextAlign.center,
@@ -106,29 +113,42 @@ class MyCountryInfo extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                             fontSize: 16,
                             color: Color.fromRGBO(98, 88, 72, 10)))),
+                SizedBox(
+                  height: 8,
+                ),
                 Text(
-                    "The mixture of Portuguese and African culture has made urban",
+                    "The mixture of Portuguese and African culture has made urban Angola, especially the Luanda region, more like a Latin American than an African country. ",
+                    textAlign: TextAlign.justify,
                     style: GoogleFonts.nunito(
                         textStyle: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 12,
                             color: Color.fromRGBO(98, 88, 72, 10)))),
+                SizedBox(
+                  height: 32,
+                ),
                 Text("Famous People",
                     style: GoogleFonts.nunito(
                         textStyle: const TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 16,
                             color: Color.fromRGBO(98, 88, 72, 10)))),
+                SizedBox(
+                  height: 8,
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      scrollItem1("assets/abuja.png", "abuja"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
-                      scrollItem1("assets/Angola.jpg", "angola"),
+                      scrollItem1("assets/Angeli.jpg", "Angélique Kidjo"),
+                      scrollItem1("assets/sagbo.jpg", "Jean Sagbo"),
+                      scrollItem1("assets/bocco.jpg", "J.M.A Bocco"),
+                      scrollItem1("assets/saint.jpg", "Saint Jhn"),
+                      scrollItem1("assets/saint.jpg", "Maiombe Forest"),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 8,
                 ),
               ],
             ),
@@ -152,6 +172,7 @@ Widget profilePage() {
 
 Widget scrollItem1(String images, String name) {
   return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Container(
         decoration: BoxDecoration(
@@ -161,8 +182,8 @@ Widget scrollItem1(String images, String name) {
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             images,
-            height: 90,
-            width: 90,
+            height: 72,
+            width: 84,
             fit: BoxFit.fill,
           ),
         ),

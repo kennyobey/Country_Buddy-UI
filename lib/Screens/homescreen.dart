@@ -10,15 +10,18 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
   final List<PhotoItem> _items = [
-    PhotoItem("assets/Africa.jpg", "Africa", "Africa is the world's second."),
-    PhotoItem("assets/Europe.jpg", "Europe", "Africa is the world's second."),
-    PhotoItem("assets/Asia.jpg", "Asia", "Africa is the world's second."),
+    PhotoItem("assets/Africa.jpg", "Africa",
+        "Africa is the world's second-largest and second-most populous continent."),
+    PhotoItem("assets/Europe.jpg", "Europe",
+        "Africa is the world's second-largest and second-most populous continent."),
+    PhotoItem("assets/Asia.jpg", "Asia",
+        "Africa is the world's second-largest and second-most populous continent."),
     PhotoItem("assets/NorthAme.jpg", "North America",
-        "Africa is the world's second."),
-    PhotoItem(
-        "assets/Asia.jpg", "South America", "Africa is the world's second."),
-    PhotoItem(
-        "assets/Australia.jpg", "Australia", "Africa is the world's second."),
+        "Africa is the world's second-largest and second-most populous continent."),
+    PhotoItem("assets/Asia.jpg", "South America",
+        "Africa is the world's second-largest and second-most populous continent."),
+    PhotoItem("assets/Australia.jpg", "Australia",
+        "Africa is the world's second-largest and second-most populous continent."),
   ];
 
   @override
@@ -137,7 +140,7 @@ class MyHomePage extends StatelessWidget {
             children: List.generate(6, (index) {
               return Container(
                 //padding: EdgeInsets.all(8),
-                height: 240,
+                height: 300,
                 width: 183,
                 child: GestureDetector(
                   onTap: () {
@@ -149,10 +152,12 @@ class MyHomePage extends StatelessWidget {
                   child: InkWell(
                     child: Card(
                         child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                           Container(
-                            height: 108,
+                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                            height: 100,
                             width: 146,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
@@ -164,13 +169,12 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
+                          SizedBox(height: 2,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
+                                padding: EdgeInsets.symmetric(horizontal: 8),
                                 child: Text(
                                   _items[index].title,
                                   style: GoogleFonts.nunito(
@@ -182,6 +186,7 @@ class MyHomePage extends StatelessWidget {
                                 ),
                               ),
                               Container(
+                                 padding: EdgeInsets.symmetric(horizontal: 8),
                                 child: Text(
                                   _items[index].desc,
                                   textAlign: TextAlign.start,

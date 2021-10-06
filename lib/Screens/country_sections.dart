@@ -42,7 +42,6 @@ class MyCountrySec extends StatelessWidget {
                         color: Color.fromRGBO(98, 88, 72, 10)))),
           ),
         ),
-        
         SliverPadding(
           padding: EdgeInsets.only(left: 15, right: 15),
           sliver: SliverToBoxAdapter(
@@ -58,7 +57,7 @@ class MyCountrySec extends StatelessWidget {
                                 fontSize: 24,
                                 color: Color.fromRGBO(98, 88, 72, 10)))),
                     SizedBox(width: 5),
-                     Image(
+                    Image(
                         image: AssetImage(
                       "assets/worldicon.png",
                     ))
@@ -128,29 +127,29 @@ class MyCountrySec extends StatelessWidget {
                 height: 100,
                 width: 100,
                 child: GestureDetector(
-                   onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyCountryInfo()),
-            );
-          },
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyCountryInfo()),
+                    );
+                  },
                   child: InkWell(
                     child: Card(
-                        child: Column(children: [
-                      ListTile(
-                        leading: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minWidth: 50,
-                            minHeight: 50,
-                            maxWidth: 70,
-                            maxHeight: 70,
-                          ),
-                          child:
-                              Image.asset(_items[index].image, fit: BoxFit.cover),
-                        ),
-                        title: Row(
-                          children: [
-                            Text(
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                          ListTile(
+                            leading: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minWidth: 50,
+                                minHeight: 50,
+                                maxWidth: 70,
+                                maxHeight: 70,
+                              ),
+                              child: Image.asset(_items[index].image,
+                                  fit: BoxFit.cover),
+                            ),
+                            title: Text(
                               _items[index].title,
                               style: GoogleFonts.nunito(
                                   textStyle: TextStyle(
@@ -158,11 +157,7 @@ class MyCountrySec extends StatelessWidget {
                                       fontSize: 14,
                                       color: Color.fromRGBO(98, 88, 72, 10))),
                             ),
-                          ],
-                        ),
-                        subtitle: Row(
-                          children: [
-                            Text(
+                            subtitle: Text(
                               _items[index].desc,
                               textAlign: TextAlign.center,
                               style: GoogleFonts.nunito(
@@ -171,13 +166,8 @@ class MyCountrySec extends StatelessWidget {
                                       fontSize: 9,
                                       color: Color.fromRGBO(98, 88, 72, 10))),
                             ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                    ])),
+                          ),
+                        ])),
                   ),
                 ),
               );
