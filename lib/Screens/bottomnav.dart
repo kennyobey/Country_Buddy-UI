@@ -31,14 +31,24 @@ class _MyNavPageState extends State<MyNavPage> {
     return Scaffold(
         body: Center(child: _pages.elementAt(_selectedIndex)),
         bottomNavigationBar: BottomNavigationBar(
-          selectedIconTheme: IconThemeData(color: Color.fromRGBO(98, 88, 72, 10), size: 40),
+          selectedIconTheme:
+              IconThemeData(color: Color.fromRGBO(98, 88, 72, 10), size: 40),
           selectedItemColor: Colors.amberAccent,
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.house), label: ''),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  NetworkImage('assets/BottomHome.jpg'),
+                ),
+                title: Text(''),
+              ),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
             BottomNavigationBarItem(
-                icon: Icon(Icons.circle_notifications_sharp), label: ''),
+              icon: ImageIcon(
+                AssetImage("assets/worldicon.png"),
+              ),
+              title: Text(""),
+            )
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,

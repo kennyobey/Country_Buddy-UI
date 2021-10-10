@@ -10,17 +10,17 @@ class MyCountrySec extends StatelessWidget {
 
   final List<PhotoItem> _items = [
     PhotoItem("assets/Angola.jpg", "Angola",
-        "Angola is a Southern African nation whose varied ."),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches.."),
     PhotoItem("assets/Benin.jpg", "Benin Republic",
-        "Angola is a Southern African nation whose varied ."),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
     PhotoItem("assets/CentralAfri.jpg", "Central African Republic",
-        "Angola is a Southern African nation whose varied ."),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
     PhotoItem("assets/Drcongo.jpg", "DR Congo",
-        "Angola is a Southern African nation whose varied ."),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
     PhotoItem("assets/Ethopia.jpg", "Ethopia",
-        "Angola is a Southern African nation whose varied ."),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
     PhotoItem("assets/Gambia.jpg", "Gambia",
-        "Angola is a Southern African nation whose varied .󠁧󠁢󠁥󠁮󠁧󠁿"),
+        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
   ];
 
   @override
