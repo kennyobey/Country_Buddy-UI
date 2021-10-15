@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_field, must_be_immutable, unused_element, unnecessary_const, prefer_final_fields, sized_box_for_whitespace, avoid_unnecessary_containers
 
-import 'package:country_buddy/Screens/country_sections.dart';
+import 'package:country_buddy/screens/country_sections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +34,7 @@ class MyHomePage extends StatelessWidget {
             elevation: 0,
             pinned: true,
             floating: true,
-            title: Text("Hi Dara,",
+            title: Text("Hi Dera,",
                 style: GoogleFonts.nunito(
                     textStyle: const TextStyle(
                         fontWeight: FontWeight.w700,
@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.only(left: 15, right: 15),
+          padding: EdgeInsets.only(left: 15.sp, right: 15.sp),
           sliver: SliverToBoxAdapter(
             child: Center(
               child: Column(
@@ -57,19 +57,19 @@ class MyHomePage extends StatelessWidget {
                               fontSize: 16,
                               color: Color.fromRGBO(98, 88, 72, 10)))),
                   SizedBox(
-                    height: 10,
+                    height: 30.sp,
                   ),
                   Container(
-                    height: 40,
+                    height: 35,
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: ("search countries, continent"),
+                        hintText: ("Search countries, continent"),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(3),
+                            borderRadius: BorderRadius.circular(3.sp),
                             borderSide: const BorderSide(
                                 color: Colors.transparent, width: 1),
-                            gapPadding: 5.0),
-                        contentPadding: EdgeInsets.all(8),
+                            gapPadding: 5.0.sp),
+                        contentPadding: EdgeInsets.all(8.sp),
                         fillColor: Colors.white,
                         filled: true,
                         prefixIcon: const Icon(Icons.search),
@@ -79,7 +79,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 40,
                   ),
                   Row(
                     children: [
@@ -93,11 +93,11 @@ class MyHomePage extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        "See all",
+                        "See all", 
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 12,
-                            color: Colors.blue),
+                            color: Colors.blue,),
                       ),
                     ],
                   ),
@@ -115,7 +115,7 @@ class MyHomePage extends StatelessWidget {
                         ],
                       )),
                   SizedBox(
-                    height: 10,
+                    height: 20.sp,
                   ),
                   Row(children: [
                     Text(
@@ -126,16 +126,18 @@ class MyHomePage extends StatelessWidget {
                               fontSize: 16,
                               color: Color.fromRGBO(98, 88, 72, 10))),
                     ),
-                  ])
+                  ]),
+                  SizedBox(height: 10.sp,),
                 ],
               ),
             ),
           ),
         ),
+        
         SliverPadding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.sp),
           sliver: SliverGrid.count(
-            crossAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0.sp,
             crossAxisCount: 2,
             children: List.generate(6, (index) {
               return Container(
@@ -152,11 +154,11 @@ class MyHomePage extends StatelessWidget {
                   child: InkWell(
                     child: Card(
                         child: Column(
-                          
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                           Container(
-                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 8.sp, vertical: 8.sp),
                             height: 100,
                             width: 146,
                             decoration: BoxDecoration(
@@ -169,7 +171,9 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -186,7 +190,7 @@ class MyHomePage extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                 padding: EdgeInsets.symmetric(horizontal: 8),
+                                padding: EdgeInsets.symmetric(horizontal: 8),
                                 child: Text(
                                   _items[index].desc,
                                   textAlign: TextAlign.start,

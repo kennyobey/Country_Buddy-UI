@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
-import 'package:country_buddy/Screens/country_information.dart';
+import 'package:country_buddy/screens/country_information.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

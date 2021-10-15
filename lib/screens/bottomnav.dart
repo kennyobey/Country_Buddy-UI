@@ -1,9 +1,10 @@
 // ignore_for_file: must_be_immutable, unused_label, unnecessary_const, prefer_const_constructors
 
-import 'package:country_buddy/Screens/homescreen.dart';
-import 'package:country_buddy/Screens/search.dart';
-import 'package:country_buddy/Screens/travelingui.dart';
+import 'package:country_buddy/screens/homescreen.dart';
+import 'package:country_buddy/screens/search.dart';
+import 'package:country_buddy/screens/travelingui.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter_icons/flutter_icons.dart';
 
 class MyNavPage extends StatefulWidget {
   const MyNavPage({Key? key}) : super(key: key);
@@ -37,17 +38,15 @@ class _MyNavPageState extends State<MyNavPage> {
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: ImageIcon(
-                  NetworkImage('assets/BottomHome.jpg'),
-                ),
-                title: Text(''),
-              ),
+              icon: ImageIcon(
+                AssetImage('assets/Bottomhome.png'),
+              ), label: ""
+            ),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
             BottomNavigationBarItem(
               icon: ImageIcon(
                 AssetImage("assets/worldicon.png"),
-              ),
-              title: Text(""),
+              ), label:""
             )
           ],
           currentIndex: _selectedIndex,
