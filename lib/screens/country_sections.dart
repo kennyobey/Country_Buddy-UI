@@ -1,12 +1,27 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:country_buddy/models/africa_models.dart';
 import 'package:country_buddy/screens/country_information.dart';
+import 'package:country_buddy/servive/contry_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyCountrySec extends StatelessWidget {
-  MyCountrySec({Key? key}) : super(key: key);
+class MyCountrySec extends StatefulWidget {
+  const MyCountrySec({Key? key}) : super(key: key);
+
+  @override
+  _MyCountrySecState createState() => _MyCountrySecState();
+}
+
+class _MyCountrySecState extends State<MyCountrySec> {
+  final CountriesService countriesService = CountriesService();
+
+  @override
+  void initState() {
+    super.initState();
+    countriesService.getCountries();
+  }
 
   final List<PhotoItem> _items = [
     PhotoItem("assets/Angola.jpg", "Angola",
@@ -134,40 +149,61 @@ class MyCountrySec extends StatelessWidget {
                     );
                   },
                   child: InkWell(
-                    child: Card(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                          ListTile(
-                            leading: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                minWidth: 50,
-                                minHeight: 50,
-                                maxWidth: 70,
-                                maxHeight: 70,
-                              ),
-                              child: Image.asset(_items[index].image,
-                                  fit: BoxFit.cover),
-                            ),
-                            title: Text(
-                              _items[index].title,
-                              style: GoogleFonts.nunito(
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 14,
-                                      color: Color.fromRGBO(98, 88, 72, 10))),
-                            ),
-                            subtitle: Text(
-                              _items[index].desc,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.nunito(
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 9,
-                                      color: Color.fromRGBO(98, 88, 72, 10))),
-                            ),
-                          ),
-                        ])),
+                    child: FutureBuilder<List<CountryBuddy>>(
+                      future: countriesService.getCountries(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: Text('Loading...'),
+                          );
+                        }
+                        if (snapshot.hasError) {
+                          return Center(
+                            child: Text('Error...'),
+                          );
+                        } else if (snapshot.hasData) {
+                          return Card(
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                ListTile(
+                                  leading: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      minWidth: 50,
+                                      minHeight: 50,
+                                      maxWidth: 70,
+                                      maxHeight: 70,
+                                    ),
+                                    child: Image.network(
+                                        "snapshot.data![index].flags",
+                                        fit: BoxFit.cover),
+                                  ),
+                                  title: Text(
+                                    snapshot.data![index].name,
+                                    style: GoogleFonts.nunito(
+                                        textStyle: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Color.fromRGBO(
+                                                98, 88, 72, 10))),
+                                  ),
+                                  subtitle: Text(
+                                    snapshot.data![index].capital,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.nunito(
+                                        textStyle: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 9,
+                                            color: Color.fromRGBO(
+                                                98, 88, 72, 10))),
+                                  ),
+                                ),
+                              ]));
+                        }
+                        return const SizedBox();
+                      },
+                    ),
                   ),
                 ),
               );

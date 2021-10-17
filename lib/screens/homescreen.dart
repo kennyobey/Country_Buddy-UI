@@ -1,13 +1,28 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_field, must_be_immutable, unused_element, unnecessary_const, prefer_final_fields, sized_box_for_whitespace, avoid_unnecessary_containers
 
+import 'package:country_buddy/models/africa_models.dart';
 import 'package:country_buddy/screens/country_sections.dart';
+import 'package:country_buddy/servive/contry_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final CountriesService countriesService = CountriesService();
+
+  @override
+  void initState() {
+    super.initState();
+    countriesService.getCountries();
+  }
 
   final List<PhotoItem> _items = [
     PhotoItem("assets/Africa.jpg", "Africa",
@@ -93,11 +108,12 @@ class MyHomePage extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        "See all", 
+                        "See all",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            color: Colors.blue,),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: Colors.blue,
+                        ),
                       ),
                     ],
                   ),
@@ -127,13 +143,14 @@ class MyHomePage extends StatelessWidget {
                               color: Color.fromRGBO(98, 88, 72, 10))),
                     ),
                   ]),
-                  SizedBox(height: 10.sp,),
+                  SizedBox(
+                    height: 10.sp,
+                  ),
                 ],
               ),
             ),
           ),
         ),
-        
         SliverPadding(
           padding: EdgeInsets.all(10.sp),
           sliver: SliverGrid.count(
@@ -214,48 +231,48 @@ class MyHomePage extends StatelessWidget {
       ]),
     );
   }
-}
 
-Widget profilePage() {
-  return Container(
-      width: 25.0,
-      height: 25.0,
-      decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          image: DecorationImage(
+  Widget profilePage() {
+    return Container(
+        width: 25.0,
+        height: 25.0,
+        decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+                fit: BoxFit.fill,
+                image: NetworkImage("https://i.imgur.com/BoN9kdC.png"))));
+  }
+
+  Widget scrollItem1(String images, String name) {
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(40),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              images,
+              height: 90,
+              width: 90,
               fit: BoxFit.fill,
-              image: NetworkImage("https://i.imgur.com/BoN9kdC.png"))));
-}
-
-Widget scrollItem1(String images, String name) {
-  return Column(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            images,
-            height: 90,
-            width: 90,
-            fit: BoxFit.fill,
+            ),
           ),
         ),
-      ),
-      Row(
-        children: [
-          Text(name,
-              style: GoogleFonts.nunito(
-                  textStyle: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12,
-                      color: Color.fromRGBO(98, 88, 72, 10)))),
-        ],
-      )
-    ],
-  );
+        Row(
+          children: [
+            Text(name,
+                style: GoogleFonts.nunito(
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: Color.fromRGBO(98, 88, 72, 10)))),
+          ],
+        )
+      ],
+    );
+  }
 }
 
 class PhotoItem {
