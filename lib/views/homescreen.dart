@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unused_field, must_be_immutable, unused_element, unnecessary_const, prefer_final_fields, sized_box_for_whitespace, avoid_unnecessary_containers
 
-import 'package:country_buddy/models/africa_models.dart';
-import 'package:country_buddy/screens/country_sections.dart';
-import 'package:country_buddy/servive/contry_service.dart';
+import 'package:country_buddy/views/country_sections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,14 +14,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final CountriesService countriesService = CountriesService();
-
-  @override
-  void initState() {
-    super.initState();
-    countriesService.getCountries();
-  }
-
   final List<PhotoItem> _items = [
     PhotoItem("assets/Africa.jpg", "Africa",
         "Africa is the world's second-largest and second-most populous continent."),
