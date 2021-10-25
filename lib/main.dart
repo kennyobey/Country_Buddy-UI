@@ -15,19 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => CountryViewModel())
-        ],
-        child: ScreenUtilInit(
-            designSize: Size(360, 690),
-            builder: () => MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  title: 'Flutter Demo',
-                  theme: ThemeData(
-                      primarySwatch: Colors.grey,
-                      appBarTheme: AppBarTheme(color: Colors.white)),
-                  home: MyNavPage(),
-                )));
+      providers: [ChangeNotifierProvider(create: (_) => CountryViewModel())],
+      child: ScreenUtilInit(
+        designSize: Size(360, 690),
+        builder: () => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+              primarySwatch: Colors.grey,
+              appBarTheme: AppBarTheme(color: Colors.white)),
+          home: MyNavPage(),
+        ),
+      ),
+    );
   }
 }
 

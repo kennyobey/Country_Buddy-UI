@@ -1,6 +1,4 @@
 // ignore_for_file: must_be_immutable, unused_label, unnecessary_const, prefer_const_constructors
-
-
 import 'package:country_buddy/views/homescreen.dart';
 import 'package:country_buddy/views/search.dart';
 import 'package:country_buddy/views/travelingui.dart';

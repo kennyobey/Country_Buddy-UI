@@ -39,12 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
             elevation: 0,
             pinned: true,
             floating: true,
-            title: Text("Hi Dera,",
-                style: GoogleFonts.nunito(
-                    textStyle: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20,
-                        color: Color.fromRGBO(98, 88, 72, 10)))),
+            centerTitle: false,
+            title: Text(
+              "Hi Dera,",
+              style: GoogleFonts.nunito(
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20,
+                  color: Color.fromRGBO(98, 88, 72, 10),
+                ),
+              ),
+            ),
           ),
         ),
         SliverPadding(
