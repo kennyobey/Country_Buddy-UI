@@ -15,22 +15,23 @@ class CountryViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  CountryViewModel(){
-    getCountries();
+  setContinentToEmpty() async {
+    _countryListmodel = [];
+    notifyListeners();
   }
 
-  setCountryListModel(List<CountryBuddy> countryListmodel) {
+  void setCountryListModel(List<CountryBuddy> countryListmodel) {
     _countryListmodel = countryListmodel;
   }
 
-  getCountries() async {
+  Future<void> getCountries(String continent) async {
+    setContinentToEmpty();
     setLoading(true);
-    var response = await CountriesService.getCountries();
-    if (response is Success){
+    var response = await CountriesService.getCountries(continent);
+    if (response is Success) {
       setCountryListModel(response.response as List<CountryBuddy>);
-    }
-    else{
-      return ("error");
+    } else if (response is Failure) {
+      print(response.erresponse);
     }
     setLoading(false);
   }

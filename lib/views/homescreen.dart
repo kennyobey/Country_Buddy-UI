@@ -160,7 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyCountrySec()),
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MyCountrySec(continent: _items[index].title)),
                     );
                   },
                   child: InkWell(

@@ -7,10 +7,10 @@ import 'package:country_buddy/utils/constant.dart';
 import 'package:http/http.dart' as http;
 
 class CountriesService {
-  static Future<Object> getCountries() async {
+  static Future<Object> getCountries(String continent) async {
     try {
       var response = await http
-          .get(Uri.parse("https://restcountries.com/v3.1/region/europe"));
+          .get(Uri.parse("https://restcountries.com/v3.1/region/$continent"));
 
       if (response.statusCode == SUCCESS) {
         dynamic decodedData = json.decode(response.body);

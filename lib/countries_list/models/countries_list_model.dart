@@ -100,7 +100,7 @@ class CountryBuddy {
     translations = json['translations'] != null
         ? new Translations.fromJson(json['translations'])
         : null;
-    latlng = json['latlng'].cast<double>();
+    latlng = latlng != null ? json['latlng'].cast<double>() : null;
     landlocked = json['landlocked'];
     borders = json['borders'];
     area = json['area'];
@@ -589,7 +589,7 @@ class CapitalInfo {
   CapitalInfo({this.latlng});
 
   CapitalInfo.fromJson(Map<String, dynamic> json) {
-    latlng = json['latlng'].cast<double>();
+    latlng = latlng != null ? json['latlng'].cast<double>() : null;
   }
 
   Map<String, dynamic> toJson() {

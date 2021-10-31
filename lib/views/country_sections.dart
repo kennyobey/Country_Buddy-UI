@@ -6,25 +6,24 @@ import 'package:country_buddy/views/country_information.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/src/provider.dart';
+import 'package:provider/provider.dart';
 
-class MyCountrySec extends StatelessWidget {
-  MyCountrySec({Key? key}) : super(key: key);
+class MyCountrySec extends StatefulWidget {
+  const MyCountrySec({Key? key, required this.continent}) : super(key: key);
+  final String continent;
 
-  final List<PhotoItem> _items = [
-    PhotoItem("assets/Angola.jpg", "Angola",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches.."),
-    PhotoItem("assets/Benin.jpg", "Benin Republic",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
-    PhotoItem("assets/CentralAfri.jpg", "Central African Republic",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
-    PhotoItem("assets/Drcongo.jpg", "DR Congo",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
-    PhotoItem("assets/Ethopia.jpg", "Ethopia",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
-    PhotoItem("assets/Gambia.jpg", "Gambia",
-        "Angola is a Southern African nation whose varied terrain encompasses tropical Atlantic beaches."),
-  ];
+  @override
+  State<MyCountrySec> createState() => _MyCountrySecState();
+}
+
+class _MyCountrySecState extends State<MyCountrySec> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      context.read<CountryViewModel>().getCountries(widget.continent);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class MyCountrySec extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text("African Countries",
+                      Text("${widget.continent} Countries",
                           textAlign: TextAlign.justify,
                           style: GoogleFonts.nunito(
                               textStyle: const TextStyle(
@@ -122,19 +121,24 @@ class MyCountrySec extends StatelessWidget {
               ),
             ),
           ),
-          SliverPadding(
-            padding: const EdgeInsets.all(8.0),
-            sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return CountryCard(
-                    countryViewModel.countryListmodel.elementAt(index),
-                  );
-                },
-                childCount: countryViewModel.countryListmodel.length,
-              ),
-            ),
-          ),
+          countryViewModel.loading
+              ? SliverToBoxAdapter(
+                  child: SizedBox(
+                      height: 500,
+                      child: Center(child: CircularProgressIndicator())))
+              : SliverPadding(
+                  padding: const EdgeInsets.all(8.0),
+                  sliver: SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return CountryCard(
+                          countryViewModel.countryListmodel.elementAt(index),
+                        );
+                      },
+                      childCount: countryViewModel.countryListmodel.length,
+                    ),
+                  ),
+                ),
         ],
       ),
     );
